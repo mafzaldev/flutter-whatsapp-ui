@@ -9,14 +9,17 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-                itemCount: info.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
+      child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: info.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: ListTile(
                     leading: CircleAvatar(
+                      radius: 20,
                       backgroundImage:
                           NetworkImage(info[index]["profilePic"].toString()),
                     ),
@@ -35,15 +38,15 @@ class ContactsList extends StatelessWidget {
                       info[index]["time"].toString(),
                       style: const TextStyle(fontSize: 11, color: Colors.grey),
                     ),
-                  );
-                }),
-          ),
-          const Divider(
-            color: dividerColor,
-            indent: 85,
-          )
-        ],
-      ),
+                  ),
+                ),
+                const Divider(
+                  color: dividerColor,
+                  indent: 85,
+                )
+              ],
+            );
+          }),
     );
   }
 }
