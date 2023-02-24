@@ -11,6 +11,14 @@ class MobileScreenLayout extends StatelessWidget {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: tabColor,
+            child: const Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+          ),
           appBar: AppBar(
             elevation: 0,
             backgroundColor: appBarColor,
